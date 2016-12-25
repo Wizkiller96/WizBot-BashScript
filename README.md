@@ -1,2 +1,3 @@
-# WizBot-BashScript
-Shell script for WizBot 1.0
+### WizBot-BashScript
+
+WizBot.sh for 1.0 version.
