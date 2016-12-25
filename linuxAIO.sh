@@ -50,6 +50,5 @@ else
 			fi
 		fi
 	fi
-fi
 done
 exit 0
