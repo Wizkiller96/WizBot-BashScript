@@ -11,7 +11,7 @@ else
 	exit 1
 fi
 
-cd NadekoBot/src/WizBot
+cd WizBot/src/WizBot
 echo "Running WizBot. Please wait."
 dotnet run --configuration Release
 echo "Done"
