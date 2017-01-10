@@ -1,4 +1,5 @@
 #!/bin/sh
+echo ""
 echo "Welcome to WizBot."
 echo "By Kwoth & Wizkiller96"
 
