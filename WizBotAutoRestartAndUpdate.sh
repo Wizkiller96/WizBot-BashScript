@@ -3,12 +3,13 @@ echo ""
 echo "Welcome to WizBot Auto Restart and Update!"
 echo ""
 
-choice=4
+choice=5
 	echo "1. Run Auto Restart normally without Updating."
 	echo "2. Auto Restart and Update with Dev Build (latest)"
-	echo "3. Exit"
-	echo -n "Choose [1] to Run WizBot with auto restart on ".die" command without updating itself, [2] to Run with Auto Updating and Restarting after using ".die" command."
-while [ $choice -eq 4 ]; do
+	echo "3. Auto Restart and Update with Stable Build (Not Used)"
+	echo "4. Exit"
+	echo -n "Choose [1] to Run WizBot with auto restart on ".die" command without updating itself, [2 or 3] to Run with Auto Updating and Restarting after using ".die" command."
+while [ $choice -eq 5 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 	echo ""
@@ -18,7 +19,11 @@ else
 		echo ""
 		curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotARU_Latest.sh | sh
 	else
-			if [ $choice -eq 3 ] ; then
+		if [ $choice -eq 3 ] ; then
+			echo ""
+			curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotARU_Stable.sh | sh
+		else
+			if [ $choice -eq 4 ] ; then
 				echo ""
 				echo "Exiting..."
 				exit 0
@@ -26,9 +31,10 @@ else
 				echo ""
 				echo "1. Run Auto Restart normally without Updating."
 				echo "2. Auto Restart and Update with Dev Build (latest)"
-				echo "3. Exit"
-				echo -n "Choose [1] to Run WizBot with auto restart on ".die" command without updating itself, [2] to Run with Auto Updating and Restarting after using ".die" command."
-				choice=4
+				echo "3. Auto Restart and Update with Stable Build"
+				echo "4. Exit"
+				echo -n "Choose [1] to Run WizBot with auto restart on ".die" command without updating itself, [2 or 3] to Run with Auto Updating and Restarting after using ".die" command."
+				choice=5
 			fi
 		fi
 	fi
