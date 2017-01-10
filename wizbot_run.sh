@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "WizBot 1.0"
-echo "Mirai was here."
+echo "By Kwoth & Wizkiller96"
 
 if hash dotnet 2>/dev/null
 then
@@ -11,7 +11,7 @@ else
 	exit 1
 fi
 
-cd WizBot/src/WizBot
+cd NadekoBot/src/WizBot
 echo "Running WizBot. Please wait."
 dotnet run --configuration Release
 echo "Done"
