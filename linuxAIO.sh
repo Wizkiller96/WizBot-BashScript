@@ -2,10 +2,11 @@
 echo ""
 echo "Welcome to WizBot."
 echo "By Kwoth & Wizkiller96"
+echo ""
 
 choice=6
 	echo "1. Download Dev Build (latest)"
-	echo "2. Download Stable Build (Not Used)"
+	echo "2. Download Stable Build"
 	echo "3. Run WizBot (normally)"
 	echo "4. Run WizBot with Auto Restart (check if WizBot is working properly, before using this)"
 	echo "5. To exit"
