@@ -3,14 +3,16 @@ echo ""
 echo "Welcome to WizBot."
 echo "By Kwoth & Wizkiller96"
 echo ""
+echo "Note: If you ran the Auto-Installer, you might want to exit and configure your credentials.json."
+echo ""
 
 choice=6
-	echo "1. Download Dev Build (latest)"
+	echo "1. Download Dev Build (Latest)"
 	echo "2. Download Stable Build"
-	echo "3. Run WizBot (normally)"
+	echo "3. Run WizBot (Normally)"
 	echo "4. Run WizBot with Auto Restart (check if WizBot is working properly, before using this)"
 	echo "5. To exit"
-	echo -n "Choose [1 or 2] to Download [3 or 4] to Run."
+	echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [5] to Exit."
 while [ $choice -eq 6 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
@@ -19,7 +21,7 @@ if [ $choice -eq 1 ] ; then
 	echo "Downloading WizBot, please wait."
 	curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_installer_latest.sh | sh
 	echo ""
-	echo "WizBot Dev Build (latest) downloaded."
+	echo "WizBot Dev Build (Latest) downloaded."
 	bash linuxAIO.sh
 else
 	if [ $choice -eq 2 ] ; then
@@ -51,12 +53,12 @@ else
 					echo "Exiting..."
 					exit 0
 				else
-					echo "1. Download Dev Build (latest)"
+					echo "1. Download Dev Build (Latest)"
 					echo "2. Download Stable Build"
-					echo "3. Run WizBot (normally)"
-					echo "4. Run WizBot with Auto Restart (check if WizBot is working properly, before using this)"
+					echo "3. Run WizBot (Normally)"
+					echo "4. Run WizBot with Auto Restart (Run WizBot normally before using this)"
 					echo "5. To exit"
-					echo -n "Choose [1 or 2] to Download [3 or 4] to Run."
+					echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [5] to Exit."
 					choice=6
 				fi
 			fi
