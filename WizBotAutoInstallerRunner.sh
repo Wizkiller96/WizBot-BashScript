@@ -17,6 +17,7 @@ if [ $choice -eq 1 ] ; then
     echo "Almost done! When you continue, we will pull up a text editor to edit your credentials.json. Please follow the guide on how to set this up. When you're finished, press Ctrl + X, then Y and Enter, then Enter again."
     read -n 1 -s -p "Press any key to continue"
     nano ~/WizBot/src/WizBot/credentials.json
+    wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotRun.sh
 	bash ~/WizBotRun.sh
 else
 	if [ $choice -eq 2 ] ; then
@@ -28,6 +29,7 @@ else
         echo "Almost done! When you continue, we will pull up a text editor to edit your credentials.json. Please follow the guide on how to set this up. When you're finished, press Ctrl + X, then Y and Enter, then Enter again."
         read -n 1 -s -p "Press any key to continue"
         nano ~/WizBot/src/WizBot/credentials.json
+        wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotRun.sh
 		bash ~/WizBotRun.sh
     fi
 fi
