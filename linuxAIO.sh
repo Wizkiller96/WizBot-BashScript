@@ -45,14 +45,16 @@ else
 				sleep 5s
 				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh
 				echo ""
-				echo "Looks like that didn't work."
+				echo "Look you're back, why?"
+				bash linuxAIO.sh
 			else
 				if [ $choice -eq 5 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
 					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbotautoinstaller.sh && bash wizbotautoinstaller.sh
 					echo ""
-					echo "Looks like that didn't work."
+					echo "Welcome back..."
+					bash linuxAIO.sh
 				else
 					if [ $choice -eq 6 ] ; then
 						echo ""
@@ -77,7 +79,7 @@ echo Alright saved \'$clientid\' as your client ID.
 sleep 5
 clear
 
-echo Please enter your bot ID \(should be same as client ID.\):
+echo Please enter your bot ID \(should be same as your client ID.\):
 read botid
 echo Alright saved \'$botid\' as your Bot ID.
 sleep 5
@@ -89,7 +91,7 @@ echo Alright saved \'$token\' as your bot\'s token.
 sleep 5
 clear
 
-echo Please enter your own ID \(Refer to the guide, it will bot\'s owner ID.\):
+echo Please enter your own ID \(Refer to the guide, it will be bot\'s owner ID.\):
 read ownerid
 echo Alright saved \'$ownerid\' as owner\'s ID.
 sleep 5
@@ -143,6 +145,8 @@ echo "{
 echo Credentials setup completed.
 sleep 5
 clear
+cd ~
+tmux new -s wizbot 'bash linuxAIO.sh'
 					else
 						if [ $choice -eq 7 ] ; then
 							echo ""
