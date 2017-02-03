@@ -45,7 +45,7 @@ else
 				sleep 5s
 				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh
 				echo ""
-				echo "Look you're back, why?"
+				echo "That did not work?"
 				bash linuxAIO.sh
 			else
 				if [ $choice -eq 5 ] ; then
