@@ -1,7 +1,6 @@
 #!/bin/sh
 echo ""
 echo "Welcome to WizBot."
-echo ""
 
 choice=8
 	echo "1. Download Dev Build (Latest)"
