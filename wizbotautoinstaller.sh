@@ -161,7 +161,6 @@ fi
 echo
 echo "Installation completed..."
 sleep 5
-cd ~
 
 tmux new -s wizbot 'rm wizbotautoinstaller.sh && bash linuxAIO.sh'
 
