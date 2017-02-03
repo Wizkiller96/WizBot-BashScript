@@ -51,7 +51,6 @@ if [ "$BITS" = 32 ]; then
 	echo -e "Your system architecture is $ARCH which is unsupported to run Microsoft .NET Core SDK. \nYour OS: $OS \nOS Version: $VER"
 	echo
 	printf "\e[1;31mPlease check the WizBot self-hosting guide for alternatives.\e[0m\n"
-	rm wizbotautoinstaller.sh
 	exit 1
 fi
 
@@ -71,7 +70,6 @@ fi
 
 if [ "$supported" = 0 ]; then
 	echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
-	rm wizbotautoinstaller.sh
 	exit 1
 fi
 
@@ -83,25 +81,25 @@ if [ "$supported" = 2 ]; then
     read -p "[y/n]: " yn
     case $yn in
         [Yy]* ) clear; echo Okay... Lets go; sleep 2; break;;
-        [Nn]* ) echo Exiting...; rm wizbotautoinstaller.sh && exit;;
+        [Nn]* ) echo Exiting...; exit;;
         * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 	done
 fi
 
-echo -e "Welcome to WizBot Auto Prerequisites Installer. \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
+echo -e "Welcome to WizBot Auto Prerequisites Installer. This will install all the WizBot's prerequisites before installing WizBot... \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
 
 while true; do
     read -p "[y/n]: " yn
     case $yn in
         [Yy]* ) clear; echo Running WizBot Auto-Installer; sleep 2; break;;
-        [Nn]* ) echo Quitting...; rm wizbotautoinstaller.sh && exit;;
+        [Nn]* ) echo Quitting...; exit;;
         * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 done
 
 if [ "$OS" = "Ubuntu" ]; then
-echo "This installer will download all of the required packages for WizBot. It will use about 350MB of space. This might take awhile to download if you do not have a good internet connection."
+echo "This installer will download all of the required packages for WizBot. It will use about 350MB of space. This might take awhile to download if you dont have a good internet connection."
 echo ""
 read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
@@ -109,8 +107,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Preparing..."
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo add-apt-repository ppa:mc3man/trusty-media -y
-	sudo add-apt-repository ppa:chris-lea/libsodium -y
+	sudo add-apt-repository ppa:mc3man/trusty-media
 	sudo apt update
 	sudo apt-get dist-upgrade -y
 	echo "Installing Git..."
@@ -156,13 +153,13 @@ sudo apt-get update
 echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
 sudo apt-get update && sudo apt-get install ffmpeg -y
 sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
-sudo apt install git -y
 sudo apt-get install tmux -y
 fi
 
 echo
 echo "Installation completed..."
-sleep 2
+sleep 5
+cd ~
 
 tmux new -s wizbot 'rm wizbotautoinstaller.sh && bash linuxAIO.sh'
 
