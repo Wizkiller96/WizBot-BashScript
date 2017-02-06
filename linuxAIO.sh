@@ -7,9 +7,9 @@ choice=8
 	echo "2. Download Stable Build"
 	echo "3. Run WizBot (Normally)"
 	echo "4. Run WizBot with Auto Restart (Run WizBot normally before using this.)"
-	echo "5. Auto-Install Prerequisites (for Ubuntu and Debian)"
-	echo "6. Set up credentials.json (if you have downloaded the bot already)"
-	echo "7. To exit"
+	echo "5. Auto-Install Prerequisites (For Ubuntu and Debian)"
+	echo "6. Set up credentials.json (If you have downloaded WizBot already.)"
+	echo "7. To Exit"
 	echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit"
 while [ $choice -eq 8 ]; do
 read choice
@@ -156,9 +156,9 @@ tmux new -s wizbot 'bash linuxAIO.sh'
 							echo "2. Download Stable Build"
 							echo "3. Run WizBot (Normally)"
 							echo "4. Run WizBot with Auto Restart (Run WizBot normally before using this.)"
-							echo "5. Auto-Install Prerequisites (for Ubuntu and Debian)"
-							echo "6. Set up credentials.json (if you have downloaded the bot already)"
-							echo "7. To exit"
+							echo "5. Auto-Install Prerequisites (For Ubuntu and Debian)"
+							echo "6. Set up credentials.json (If you have downloaded WizBot already.)"
+							echo "7. To Exit"
 							echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit."
 							choice=8
 						fi
