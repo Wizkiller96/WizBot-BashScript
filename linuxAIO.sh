@@ -68,7 +68,6 @@ while true; do
     esac
 done
 clear
-cd ~
 cd WizBot/src/WizBot
 mv credentials.json credentials.json.old
 
