@@ -33,15 +33,7 @@ else
 		if [ $choice -eq 3 ] ; then
 			echo ""
 			echo "Running WizBot Normally, if you are running this to check WizBot, use .die command on discord to stop WizBot."
-			echo -e "Do you want to use tmux? If you're running this in SSH or PuTTY, you'll want to select yes.'"
-				while true; do
-    				read -p "[Y/N]: " yn
-   					case $yn in
-        			[Yy]* ) tmux kill-session -t wizbot; tmux new -s wizbot 'wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_run.sh && bash wizbot_run.sh'; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        			[Nn]* ) wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_run.sh && bash wizbot_run.sh; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        				* ) echo "Couldn't get that. Please type [y] for Yes or [n] for No.";;
-   				 	esac
-				done
+			curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_run.sh | sh
 			echo ""
 			echo "Welcome back to WizBot."
 			bash linuxAIO.sh
@@ -50,15 +42,7 @@ else
 				echo ""
 				echo "Running WizBot with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				echo -e "Do you want to use tmux? If you're running this in SSH or PuTTY, you'll want to select yes.'"
-				while true; do
-    				read -p "[Y/N]: " yn
-   						case $yn in
-        			[Yy]* ) tmux kill-session -t wizbot; tmux new -s wizbot 'wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh'; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        			[Nn]* ) wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh; read -p "Looks like that didn't work. Try running the AIO again. Press enter to continue."; clear; exit;;
-        				* ) echo "Couldn't get that. Please type [y] for Yes or [n] for No.";;
-   				 	esac
-				done
+				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh
 				echo ""
 				echo "That did not work?"
 				bash linuxAIO.sh
