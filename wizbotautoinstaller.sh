@@ -210,6 +210,6 @@ echo
 echo "WizBot Prerequisites Installation completed..."
 sleep 2
 
-rm wizbotautoinstaller.sh && bash linuxAIO.sh
+rm wizbotautoinstaller.sh
 
 exit 0
