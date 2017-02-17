@@ -9,7 +9,8 @@ function detect_OS_ARCH_VER_BITS {
 	elif [ -f /etc/debian_version ]; then
 	    OS=Debian  # XXX or Ubuntu??
 	    VER=$(cat /etc/debian_version)
-	#elif [ -f /etc/redhat-release ]; then
+	elif [ -f /etc/centos-release ]; then
+		OS=CentOS
 	else
 	    OS=$(uname -s)
 	    VER=$(uname -r)
@@ -109,7 +110,7 @@ read -n 1 -s -p "Press any key to continue..."
 	if [ "$VER" = "14.04" ]; then
 	echo "Gwen was here <3"
 	echo "Preparing..."
-    sudo apt install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo add-apt-repository ppa:mc3man/trusty-media -y
@@ -125,7 +126,7 @@ read -n 1 -s -p "Press any key to continue..."
 	elif [ "$VER" = "16.04" ]; then
 	echo ""
 	echo "Preparing..."
-    sudo apt install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt update
@@ -138,7 +139,7 @@ read -n 1 -s -p "Press any key to continue..."
 	elif [ "$VER" = "16.10" ]; then
 	echo ""
 	echo "Preparing..."
-    sudo apt install software-properties-common apt-transport-https -y
+	sudo apt install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt update
@@ -177,6 +178,14 @@ sudo apt-get update && sudo apt install ffmpeg -y
 sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
 sudo apt-get install git -y
 sudo apt-get install tmux -y
+elif [ "$OS" = "CentOS" ]; then
+echo ""
+echo "Preparing..."
+curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835019
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
+sudo yum install git opus opus-devel ffempeg tmux -y
 fi
 
 echo
