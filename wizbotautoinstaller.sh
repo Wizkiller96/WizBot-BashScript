@@ -110,6 +110,7 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo add-apt-repository ppa:mc3man/trusty-media -y
 	sudo add-apt-repository ppa:chris-lea/libsodium -y
 	sudo apt update
+	sudo apt upgrade -y
 	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
@@ -124,6 +125,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt update
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
@@ -137,6 +140,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt update
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
@@ -150,6 +155,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 	sudo apt update
+	sudo apt upgrade -y
+	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
