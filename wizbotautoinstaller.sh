@@ -158,20 +158,26 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
 	fi
 elif [ "$OS" = "Debian" ]; then
-echo ""
-echo "Adding .NET to PATH"
-sudo apt-get install software-properties-common apt-transport-https -y
-sudo apt-get install curl libunwind8 gettext
-curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
-sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-sudo ln -s /opt/dotnet/dotnet /usr/local/bin
-echo "Installing prerequisites..."
-sudo apt-get update
-echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
-sudo apt-get update && sudo apt install ffmpeg -y
-sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
-sudo apt-get install git -y
-sudo apt-get install tmux -y
+if [ "$SVER" = "8" ]; then
+		echo ""
+		echo "Adding .NET to PATH"
+		sudo apt-get install software-properties-common apt-transport-https -y
+		sudo apt-get install curl libunwind8 gettext
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=835021
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		echo "Installing prerequisites..."
+		sudo apt-get update
+		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
+		sudo apt-get update && sudo apt install ffmpeg -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+		sudo apt-get install git -y
+		sudo apt-get install tmux -y
+	else
+		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
+		rm nadekoautoinstaller.sh
+		exit 1
+	fi
 elif [ "$OS" = "CentOS" ]; then
 	if [ "$VER" = "7" ]; then
 		echo ""
@@ -192,7 +198,7 @@ elif [ "$OS" = "CentOS" ]; then
 fi
 
 echo
-echo "Installation completed..."
+echo "WizBot Prerequisites Installation completed..."
 sleep 2
 
 rm wizbotautoinstaller.sh && bash linuxAIO.sh
