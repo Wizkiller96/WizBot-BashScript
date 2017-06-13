@@ -1,4 +1,4 @@
-#!/bin/sh
+WizBot#!/bin/sh
 echo ""
 echo "WizBot Installer started."
 
@@ -7,7 +7,7 @@ then
     echo ""
     echo "Git Installed."
 else
-    echo ""    
+    echo ""
     echo "Git is not installed. Please install Git."
     exit 1
 fi
@@ -32,29 +32,20 @@ cd "$tempdir"
 
 echo ""
 echo "Downloading WizBot, please wait."
-git clone -b dev --recursive --depth 1 https://github.com/Wizkiller96/WizBot.git
+git clone -b 1.4 --recursive --depth 1 https://github.com/Wizkiller96/WizBot.git
 echo ""
 echo "WizBot downloaded."
 
 echo ""
 echo "Downloading WizBot dependencies"
-cd $root/$tempdir/WizBot/Discord.Net/src/Discord.Net.Core/
-dotnet restore 1>/dev/null 2>&1
-cd $root/$tempdir/WizBot/Discord.Net/src/Discord.Net.Rest/
-dotnet restore 1>/dev/null 2>&1
-cd $root/$tempdir/WizBot/Discord.Net/src/Discord.Net.WebSocket/
-dotnet restore 1>/dev/null 2>&1
-cd $root/$tempdir/WizBot/Discord.Net/src/Discord.Net.Commands/
-dotnet restore 1>/dev/null 2>&1
-cd $root/$tempdir/WizBot/src/WizBot/
-dotnet restore 1>/dev/null 2>&1
+cd $root/$tempdir/WizBot
+dotnet restore
 echo ""
 echo "Download done"
 
 echo ""
 echo "Building WizBot"
-cd $root/$tempdir/WizBot/src/WizBot/
-dotnet build --configuration Release 1>/dev/null 2>&1
+dotnet build --configuration Release
 echo ""
 echo "Building done. Moving WizBot"
 
@@ -71,6 +62,8 @@ else
     echo ""
     echo "credentials.json copied to the new version"
     cp -RT $root/WizBot_old/src/WizBot/bin/ $root/WizBot/src/WizBot/bin/ 1>/dev/null 2>&1
+    cp -RT $root/WizBot/src/WizBot/bin/Release/netcoreapp1.0/data/WizBot.db $root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot.db 1>/dev/null 2>&1
+    mv -f $root/WizBot/src/WizBot/bin/Release/netcoreapp1.0/data/WizBot.db $root/WizBot/src/WizBot/bin/Release/netcoreapp1.0/data/WizBot_old.db 1>/dev/null 2>&1
     echo ""
     echo "Database copied to the new version"
     cp -RT $root/WizBot_old/src/WizBot/data/ $root/WizBot/src/WizBot/data/ 1>/dev/null 2>&1

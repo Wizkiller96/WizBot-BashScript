@@ -2,60 +2,51 @@
 echo ""
 echo "Welcome to WizBot."
 
-choice=8
-	echo "1. Download Dev Build (Latest)"
-	echo "2. Download Stable Build"
-	echo "3. Run WizBot (Normally)"
-	echo "4. Run WizBot with Auto Restart (Run WizBot normally before using this.)"
-	echo "5. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-	echo "6. Set up credentials.json (If you have downloaded WizBot already.)"
-	echo "7. To Exit"
-	echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit"
-while [ $choice -eq 8 ]; do
+choice=7
+	echo "1. Download WizBot"
+	echo "2. Run WizBot (Normally)"
+	echo "3. Run WizBot with Auto Restart"
+	echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
+	echo "5. Set up credentials.json (If you have downloaded WizBot already)"
+	echo "6. Exit"
+	echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit"
+while [ $choice -eq 7 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading WizBot, please wait."
-	curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_installer_latest.sh | sh
+	curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_installer_latest.sh | sh
 	echo ""
-	echo "WizBot Dev Build (Latest) downloaded."
+	echo "WizBot script downloaded."
 	bash linuxAIO.sh
 else
-	if [ $choice -eq 2 ] ; then
-		echo ""
-		echo "Downloading WizBot, please wait."
-		curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_installer.sh | sh
-		echo ""
-		echo "WizBot Stable Build downloaded."
-		bash linuxAIO.sh
-	else
-		if [ $choice -eq 3 ] ; then
+		if [ $choice -eq 2 ] ; then
 			echo ""
 			echo "Running WizBot Normally, if you are running this to check WizBot, use .die command on discord to stop WizBot."
-			curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbot_run.sh | sh
+			curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_run.sh | sh
 			echo ""
 			echo "Welcome back to WizBot."
 			bash linuxAIO.sh
 		else
-			if [ $choice -eq 4 ] ; then
+			if [ $choice -eq 3 ] ; then
 				echo ""
 				echo "Running WizBot with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh
+				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh
 				echo ""
 				echo "That did not work?"
 				bash linuxAIO.sh
 			else
-				if [ $choice -eq 5 ] ; then
+				if [ $choice -eq 4 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
-					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/master/wizbotautoinstaller.sh && bash wizbotautoinstaller.sh
+					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbotautoinstaller.sh && bash wizbotautoinstaller.sh
 					echo ""
 					echo "Welcome back..."
 					bash linuxAIO.sh
 				else
-					if [ $choice -eq 6 ] ; then
+					if [ $choice -eq 5 ] ; then
 						echo ""
 						echo
 echo -e "Let's begin creating a new credentials.json file if you are about to run the WizBot for the first time. \n \nPlease read JSON Explanations in the guide... \n \nPress [Y] when you are ready to continue or [N] to exit."
@@ -64,7 +55,7 @@ while true; do
     case $yn in
         [Yy]* ) clear; break;;
         [Nn]* ) echo Exiting...; exit;;
-        * ) echo "Couldn't get that. Please type [y] for Yes or [n] for No.";;
+        * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
     esac
 done
 clear
@@ -77,7 +68,7 @@ echo Alright saved \'$clientid\' as your client ID.
 sleep 2
 clear
 
-echo Please enter your bot ID \(should be same as your client ID.\):
+echo Please enter your bot ID \(should be same as your client ID\):
 read botid
 echo Alright saved \'$botid\' as your Bot ID.
 sleep 2
@@ -146,21 +137,20 @@ clear
 cd -
 bash linuxAIO.sh
 					else
-						if [ $choice -eq 7 ] ; then
+						if [ $choice -eq 6 ] ; then
 							echo ""
 							echo "Exiting..."
 							exit 0
 						else
 							clear
-							echo "1. Download Dev Build (Latest)"
-							echo "2. Download Stable Build"
-							echo "3. Run WizBot (Normally)"
-							echo "4. Run WizBot with Auto Restart (Run WizBot normally before using this.)"
-							echo "5. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-							echo "6. Set up credentials.json (If you have downloaded WizBot already.)"
-							echo "7. To Exit"
-							echo -n "Choose [1 or 2] to Download, [3 or 4] to Run, or [7] to Exit."
-							choice=8
+							echo "1. Download WizBot"
+							echo "2. Run WizBot (Normally)"
+							echo "3. Run WizBot with Auto Restart"
+							echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
+							echo "5. Set up credentials.json (If you have downloaded WizBot already)"
+							echo "6. Exit"
+							echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit."
+							choice=7
 						fi
 					fi
 				fi
