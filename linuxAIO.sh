@@ -110,9 +110,9 @@ echo Alright saved \'$osu\'
 sleep 2
 clear
 
-echo Please enter SoundCloud Client Id or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
-read scid
-echo Alright saved \'$scid\'
+echo Please enter Patreon Access Token or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
+read patreon
+echo Alright saved \'$patreon\'
 sleep 2
 clear
 
@@ -127,7 +127,7 @@ echo "{
   \"GoogleApiKey\": \"$googleapi\",
   \"MashapeKey\": \"$mashapekey\",
   \"OsuApiKey\": \"$osu\",
-  \"SoundCloudClientId\": \"$scid\",
+  \"SoundCloudClientId\": \"$patreon\",
   \"Db\": null,
   \"TotalShards\": 1
 }" | cat - >> credentials.json
