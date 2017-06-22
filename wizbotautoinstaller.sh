@@ -74,6 +74,19 @@ if [ "$OS" = "Ubuntu" ]; then
 	fi
 fi
 
+if [ "$OS" = "LinuxMint" ]; then
+	SVER=$( echo $VER | grep -oP "[0-9]+" | head -1 )
+	if [ "$SVER" = "18" ]; then
+		supported=1
+	elif [ "$SVER" = "17" ]; then
+		supported=1
+	elif [ "$SVER" = "2" ]; then
+		supported=1
+	else
+		supported=0
+	fi
+fi
+
 if [ "$supported" = 0 ]; then
 	echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
 	printf "\e[1;31mContact WizBot's support on Discord with screenshot.\e[0m\n"
@@ -187,6 +200,56 @@ elif [ "$OS" = "Debian" ]; then
 		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
 		rm wizbotautoinstaller.sh
 		exit 1
+	fi
+elif [ "$OS" = "LinuxMint" ]; then
+	if [ "$SVER" = "18" ]; then
+		echo ""
+		echo "Preparing..."
+		sudo apt-get install software-properties-common apt-transport-https -y
+		sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+		sudo apt update
+		sudo apt upgrade -y
+		sudo apt dist-upgrade -y
+		echo "Installing Git..."
+		sudo apt install git -y
+		echo "Installing .NET Core..."
+		sudo apt-get install dotnet-dev-1.0.4 -y
+		echo "Installing prerequisites..."
+		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	elif [ "$SVER" = "17" ]; then
+		echo "Preparing..."
+		sudo apt-get install software-properties-common apt-transport-https -y
+		sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+		sudo add-apt-repository ppa:mc3man/trusty-media -y
+		sudo add-apt-repository ppa:chris-lea/libsodium -y
+		sudo apt update
+		sudo apt upgrade -y
+		sudo apt dist-upgrade -y
+		echo "Installing Git..."
+		sudo apt install git -y
+		echo "Installing .NET Core..."
+		sudo apt-get install dotnet-dev-1.0.4 -y
+		echo "Installing prerequisites..."
+		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	elif [ "$SVER" = "2" ]; then
+		echo ""
+		echo "Adding .NET to PATH..."
+		apt-get update
+		apt-get upgrade -y
+		apt-get install sudo -y
+		sudo apt-get install software-properties-common apt-transport-https -y
+		sudo apt-get install curl libunwind8 gettext -y
+		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848826
+		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		echo "Installing prerequisites..."
+		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
+		sudo apt-get update && sudo apt install ffmpeg -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+		sudo apt-get install git -y
+		sudo apt-get install tmux -y
 	fi
 elif [ "$OS" = "CentOS" ]; then
 	if [ "$VER" = "7" ]; then
