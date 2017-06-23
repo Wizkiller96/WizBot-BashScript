@@ -262,7 +262,7 @@ elif [ "$OS" = "CentOS" ]; then
 		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
-		sudo yum install git opus opus-devel ffempeg tmux -y
+		sudo yum install git opus opus-devel ffmpeg tmux -y
 	else
 		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
 		rm wizbotautoinstaller.sh
