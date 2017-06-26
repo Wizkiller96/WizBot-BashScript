@@ -16,7 +16,7 @@ if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading WizBot, please wait."
-	curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_installer_latest.sh | sh
+	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_installer_latest.sh && bash wizbot_installer_latest.sh
 	echo ""
 	echo "WizBot script downloaded."
 	bash linuxAIO.sh
@@ -24,7 +24,7 @@ else
 		if [ $choice -eq 2 ] ; then
 			echo ""
 			echo "Running WizBot Normally, if you are running this to check WizBot, use .die command on discord to stop WizBot."
-			curl -L https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_run.sh | sh
+			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_run.sh && bash wizbot_run.sh
 			echo ""
 			echo "Welcome back to WizBot."
 			bash linuxAIO.sh
