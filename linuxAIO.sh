@@ -1,6 +1,7 @@
 #!/bin/sh
-echo ""
+clear
 echo "Welcome to WizBot."
+root=$(pwd)
 
 choice=7
 	echo "1. Download WizBot"
@@ -16,35 +17,37 @@ if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading WizBot, please wait."
-	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_installer_latest.sh && bash wizbot_installer_latest.sh
+	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_installer_latest.sh && bash "$root/wizbot_installer_latest.sh"
 	echo ""
-	echo "WizBot script downloaded."
-	bash linuxAIO.sh
+	bash "$root/linuxAIO.sh"
 else
 		if [ $choice -eq 2 ] ; then
 			echo ""
 			echo "Running WizBot Normally, if you are running this to check WizBot, use .die command on discord to stop WizBot."
-			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_run.sh && bash wizbot_run.sh
+			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_run.sh && bash "$root/wizbot_run.sh"
 			echo ""
 			echo "Welcome back to WizBot."
-			bash linuxAIO.sh
+			sleep 2s
+			bash "$root/linuxAIO.sh"
 		else
 			if [ $choice -eq 3 ] ; then
 				echo ""
 				echo "Running WizBot with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/WizBotAutoRestartAndUpdate.sh && bash WizBotAutoRestartAndUpdate.sh
+				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/WizBotAutoRestartAndUpdate.sh && bash "$root/WizBotAutoRestartAndUpdate.sh"
 				echo ""
 				echo "That did not work?"
-				bash linuxAIO.sh
+				sleep 2s
+				bash "$root/linuxAIO.sh"
 			else
 				if [ $choice -eq 4 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
-					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbotautoinstaller.sh && bash wizbotautoinstaller.sh
+					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbotautoinstaller.sh && bash "$root/wizbotautoinstaller.sh"
 					echo ""
 					echo "Welcome back..."
-					bash linuxAIO.sh
+					sleep 2s
+					bash "$root/linuxAIO.sh"
 				else
 					if [ $choice -eq 5 ] ; then
 						echo ""
@@ -59,62 +62,62 @@ while true; do
     esac
 done
 clear
-cd WizBot/src/WizBot
+cd "$root/WizBot/src/WizBot"
 mv credentials.json credentials.json.old
 
 echo Please enter your bot client ID:
 read clientid
 echo Alright saved \'$clientid\' as your client ID.
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter your bot ID \(should be same as your client ID\):
 read botid
 echo Alright saved \'$botid\' as your Bot ID.
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):
 read token
 echo Alright saved \'$token\' as your bot\'s token.
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter your own ID \(Refer to the guide, it will be bot\'s owner ID.\):
 read ownerid
 echo Alright saved \'$ownerid\' as owner\'s ID.
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter Google API key \(Refer to the guide.\):
 read googleapi
 echo Alright saved \'$googleapi\' as your bot\'s Google API Key.
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter LoL API Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read lolapikey
 echo Alright saved \'$lolapikey\'
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter Mashape Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read mashapekey
 echo Alright saved \'$mashapekey\'
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter Osu API Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read osu
 echo Alright saved \'$osu\'
-sleep 2
-clear
+echo ""
+echo ""
 
 echo Please enter Patreon Access Token or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
-read patreon
+read scid
 echo Alright saved \'$patreon\'
-sleep 2
-clear
+echo ""
+echo ""
 
 echo "{
   \"ClientId\": $clientid,
@@ -127,19 +130,20 @@ echo "{
   \"GoogleApiKey\": \"$googleapi\",
   \"MashapeKey\": \"$mashapekey\",
   \"OsuApiKey\": \"$osu\",
-  \"SoundCloudClientId\": \"$patreon\",
+  \"PatreonAccessToken\": \"$patreon\",
   \"Db\": null,
   \"TotalShards\": 1
 }" | cat - >> credentials.json
 echo Credentials setup completed.
 sleep 5
 clear
-cd -
-bash linuxAIO.sh
+cd "$root"
+bash "$root/linuxAIO.sh"
 					else
 						if [ $choice -eq 6 ] ; then
 							echo ""
 							echo "Exiting..."
+							cd "$root"
 							exit 0
 						else
 							clear
@@ -158,4 +162,6 @@ bash linuxAIO.sh
 		fi
 	fi
 done
+
+cd "$root"
 exit 0

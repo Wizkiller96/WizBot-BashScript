@@ -1,4 +1,6 @@
 #!/bin/bash -e
+root=$(pwd)
+clear
 
 function detect_OS_ARCH_VER_BITS {
 	ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
@@ -274,5 +276,6 @@ echo
 echo "WizBot Prerequisites Installation completed..."
 sleep 2
 
-rm wizbotautoinstaller.sh
+cd "$root"
+rm "$root/wizbotautoinstaller.sh"
 exit 0

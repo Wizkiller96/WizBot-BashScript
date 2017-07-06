@@ -1,7 +1,8 @@
 #!/bin/sh
-
-echo "WizBot 1.4"
+echo ""
+echo "WizBot 1.5+"
 echo "By Kwoth & Wizkiller96"
+root=$(pwd)
 
 if hash dotnet 2>/dev/null
 then
@@ -10,12 +11,13 @@ else
 	echo "Dotnet is not installed. Please install dotnet."
 	exit 1
 fi
-cd WizBot
+cd "$root/WizBot"
 dotnet restore
 dotnet build --configuration Release
-cd src/WizBot
+cd "$root/WizBot/src/WizBot"
 echo "Running WizBot. Please wait."
 dotnet run --configuration Release
 echo "Done"
 
+cd "$root"
 exit 0
