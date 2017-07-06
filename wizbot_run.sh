@@ -3,6 +3,7 @@ echo ""
 echo "WizBot 1.5+"
 echo "By Kwoth & Wizkiller96"
 root=$(pwd)
+youtube-dl -U
 
 if hash dotnet 2>/dev/null
 then

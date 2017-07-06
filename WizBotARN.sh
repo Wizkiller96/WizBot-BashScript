@@ -2,6 +2,7 @@
 echo ""
 echo "Running WizBot with auto restart normally! (without updating)"
 root=$(pwd)
+youtube-dl -U
 
 sleep 5s
 cd "$root/WizBot"

@@ -134,6 +134,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.04" ]; then
 	echo ""
 	echo "Preparing..."
@@ -149,6 +151,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.10" ]; then
 	echo ""
 	echo "Preparing..."
@@ -164,6 +168,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "17.04" ]; then
 	echo ""
 	echo "Preparing..."
@@ -179,6 +185,8 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
 	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+	sudo chmod a+rx /usr/local/bin/youtube-dl
 	fi
 elif [ "$OS" = "Debian" ]; then
 	if [ "$SVER" = "8" ]; then
@@ -198,6 +206,8 @@ elif [ "$OS" = "Debian" ]; then
 		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
 		sudo apt-get install git -y
 		sudo apt-get install tmux -y
+		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+		sudo chmod a+rx /usr/local/bin/youtube-dl
 	else
 		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
 		rm wizbotautoinstaller.sh
@@ -219,6 +229,8 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo apt-get install dotnet-dev-1.0.4 -y
 		echo "Installing prerequisites..."
 		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "17" ]; then
 		echo "Preparing..."
 		sudo apt-get install software-properties-common apt-transport-https -y
@@ -235,6 +247,8 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo apt-get install dotnet-dev-1.0.4 -y
 		echo "Installing prerequisites..."
 		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "2" ]; then
 		echo ""
 		echo "Adding .NET to PATH..."
@@ -252,6 +266,8 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
 		sudo apt-get install git -y
 		sudo apt-get install tmux -y
+		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+		sudo chmod a+rx /usr/local/bin/youtube-dl
 	fi
 elif [ "$OS" = "CentOS" ]; then
 	if [ "$VER" = "7" ]; then
@@ -265,6 +281,8 @@ elif [ "$OS" = "CentOS" ]; then
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
 		sudo yum install git opus opus-devel ffmpeg tmux -y
+		wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+		chmod a+rx /usr/local/bin/youtube-dl
 	else
 		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
 		rm wizbotautoinstaller.sh
