@@ -133,7 +133,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.04" ]; then
@@ -150,7 +150,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python3-pip -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.10" ]; then
@@ -167,7 +167,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python3-pip -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "17.04" ]; then
@@ -184,7 +184,7 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-dev-1.0.4 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python3-pip -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	fi
@@ -205,7 +205,7 @@ elif [ "$OS" = "Debian" ]; then
 		sudo apt-get update && sudo apt install ffmpeg -y
 		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
 		sudo apt-get install git -y
-		sudo apt-get install tmux -y
+		sudo apt-get install tmux python3.5 -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	else
@@ -228,7 +228,7 @@ elif [ "$OS" = "LinuxMint" ]; then
 		echo "Installing .NET Core..."
 		sudo apt-get install dotnet-dev-1.0.4 -y
 		echo "Installing prerequisites..."
-		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python3-pip -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "17" ]; then
@@ -246,7 +246,7 @@ elif [ "$OS" = "LinuxMint" ]; then
 		echo "Installing .NET Core..."
 		sudo apt-get install dotnet-dev-1.0.4 -y
 		echo "Installing prerequisites..."
-		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux -y
+		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python3-pip -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "2" ]; then
@@ -265,7 +265,7 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo apt-get update && sudo apt install ffmpeg -y
 		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
 		sudo apt-get install git -y
-		sudo apt-get install tmux -y
+		sudo apt-get install tmux python3.5 -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	fi
@@ -280,7 +280,10 @@ elif [ "$OS" = "CentOS" ]; then
 		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
 		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
-		sudo yum install git opus opus-devel ffmpeg tmux -y
+		sudo yum install git opus opus-devel ffmpeg tmux yum-utils -y
+		sudo yum -y groupinstall development
+		sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+		sudo yum install python36u python36u-pip python36u-devel -y
 		wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		chmod a+rx /usr/local/bin/youtube-dl
 	else
