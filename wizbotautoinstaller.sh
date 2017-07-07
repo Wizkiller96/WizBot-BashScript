@@ -124,7 +124,6 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo apt-get install software-properties-common apt-transport-https -y
 	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-	sudo add-apt-repository ppa:mc3man/trusty-media -y
 	sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 	sudo add-apt-repository ppa:chris-lea/libsodium -y
 	sudo apt update
@@ -241,7 +240,6 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo apt-get install software-properties-common apt-transport-https -y
 		sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-		sudo add-apt-repository ppa:mc3man/trusty-media -y
 		sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 		sudo add-apt-repository ppa:chris-lea/libsodium -y
 		sudo apt update
