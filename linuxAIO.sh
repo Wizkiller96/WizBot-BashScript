@@ -69,54 +69,63 @@ echo Please enter your bot client ID:
 read clientid
 echo Alright saved \'$clientid\' as your client ID.
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter your bot ID \(should be same as your client ID\):
 read botid
 echo Alright saved \'$botid\' as your Bot ID.
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter your bot token \(It is not bot secret, it should be ~59 characters long.\):
 read token
 echo Alright saved \'$token\' as your bot\'s token.
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter your own ID \(Refer to the guide, it will be bot\'s owner ID.\):
 read ownerid
 echo Alright saved \'$ownerid\' as owner\'s ID.
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter Google API key \(Refer to the guide.\):
 read googleapi
 echo Alright saved \'$googleapi\' as your bot\'s Google API Key.
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter LoL API Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read lolapikey
 echo Alright saved \'$lolapikey\'
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter Mashape Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read mashapekey
 echo Alright saved \'$mashapekey\'
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter Osu API Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read osu
 echo Alright saved \'$osu\'
 echo ""
+echo "----------"
 echo ""
 
 echo Please enter Patreon Access Token or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
 read scid
 echo Alright saved \'$patreon\'
 echo ""
+echo "----------"
 echo ""
 
 echo "{
