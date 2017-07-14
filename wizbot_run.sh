@@ -21,4 +21,5 @@ dotnet run --configuration Release
 echo "Done"
 
 cd "$root"
+rm "$root/wizbot_run.sh"
 exit 0

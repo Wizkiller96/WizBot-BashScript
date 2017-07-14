@@ -14,4 +14,5 @@ cd "$root"
 bash "$root/linuxAIO.sh"
 echo "Done"
 
+rm "$root/WizBotARU_Latest.sh"
 exit 0

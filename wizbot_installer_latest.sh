@@ -1,5 +1,5 @@
 #!/bin/sh
-clear
+echo ""
 echo "WizBot Installer started."
 
 if hash git 1>/dev/null 2>&1
@@ -76,4 +76,5 @@ echo ""
 echo "Installation Complete."
 
 cd "$root"
+rm "$root/wizbot_installer_latest.sh"
 exit 0

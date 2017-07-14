@@ -1,8 +1,8 @@
 #!/bin/sh
-clear
+
 echo "Welcome to WizBot."
 root=$(pwd)
-
+echo ""
 choice=7
 	echo "1. Download WizBot"
 	echo "2. Run WizBot (Normally)"
