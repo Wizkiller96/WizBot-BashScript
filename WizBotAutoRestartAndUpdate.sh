@@ -14,11 +14,11 @@ while [ $choice -eq 4 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 	echo ""
-	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/WizBotARN.sh && bash "$root/WizBotARN.sh"
+	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/WizBotARN.sh && bash "$root/WizBotARN.sh"
 else
 	if [ $choice -eq 2 ] ; then
 		echo ""
-		wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/WizBotARU_Latest.sh && bash "$root/WizBotARU_Latest.sh"
+		wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/WizBotARU_Latest.sh && bash "$root/WizBotARU_Latest.sh"
 	else
 			if [ $choice -eq 3 ] ; then
 				echo ""

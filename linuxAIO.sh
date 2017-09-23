@@ -17,14 +17,14 @@ if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading WizBot, please wait."
-	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_installer_latest.sh && bash "$root/wizbot_installer_latest.sh"
+	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbot_installer_latest.sh && bash "$root/wizbot_installer_latest.sh"
 	echo ""
 	bash "$root/linuxAIO.sh"
 else
 		if [ $choice -eq 2 ] ; then
 			echo ""
 			echo "Running WizBot Normally, if you are running this to check WizBot, use .die command on discord to stop WizBot."
-			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbot_run.sh && bash "$root/wizbot_run.sh"
+			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbot_run.sh && bash "$root/wizbot_run.sh"
 			echo ""
 			echo "Welcome back to WizBot."
 			sleep 2s
@@ -34,7 +34,7 @@ else
 				echo ""
 				echo "Running WizBot with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/WizBotAutoRestartAndUpdate.sh && bash "$root/WizBotAutoRestartAndUpdate.sh"
+				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/WizBotAutoRestartAndUpdate.sh && bash "$root/WizBotAutoRestartAndUpdate.sh"
 				echo ""
 				echo "That did not work?"
 				sleep 2s
@@ -43,7 +43,7 @@ else
 				if [ $choice -eq 4 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
-					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.4/wizbotautoinstaller.sh && bash "$root/wizbotautoinstaller.sh"
+					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotautoinstaller.sh && bash "$root/wizbotautoinstaller.sh"
 					echo ""
 					echo "Welcome back..."
 					sleep 2s

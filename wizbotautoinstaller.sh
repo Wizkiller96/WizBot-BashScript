@@ -91,13 +91,13 @@ fi
 
 if [ "$supported" = 0 ]; then
 	echo -e "Your OS $OS $VER $ARCH looks unsupported to run Microsoft .NET Core. \nExiting..."
-	printf "\e[1;31mContact WizBot's support on Discord with screenshot.\e[0m\n"
+	printf "\e[1;31mContact WizNet's support on Discord with screenshot.\e[0m\n"
 	rm wizbotautoinstaller.sh
 	exit 1
 fi
 
 if [ "$OS" = "Linux" ]; then
-	echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
+	echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizNet's support on Discord with screenshot."
 	rm wizbotautoinstaller.sh
 	exit 1
 fi
@@ -121,9 +121,11 @@ read -n 1 -s -p "Press any key to continue..."
 	echo ""
 	echo "Gwen was here <3"
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
-	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+	sudo apt-get update
+	sudo apt-get install software-properties-common apt-transport-https curl -y
+	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 	sudo add-apt-repository ppa:chris-lea/libsodium -y
 	sudo apt update
@@ -132,17 +134,19 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.4 -y
+	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.04" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
-	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+	sudo apt-get update
+	sudo apt-get install software-properties-common apt-transport-https curl -y
+	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 	sudo apt update
 	sudo apt upgrade -y
@@ -150,68 +154,93 @@ read -n 1 -s -p "Press any key to continue..."
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.4 -y
+	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.10" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
-	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+	sudo apt-get update
+	sudo apt-get install software-properties-common apt-transport-https curl -y
+	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.4 -y
+	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "17.04" ]; then
 	echo ""
 	echo "Preparing..."
-	sudo apt-get install software-properties-common apt-transport-https -y
-	sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list'
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+	sudo apt-get update
+	sudo apt-get install software-properties-common apt-transport-https curl -y
+	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt dist-upgrade -y
 	echo "Installing Git..."
 	sudo apt install git -y
 	echo "Installing .NET Core..."
-	sudo apt-get install dotnet-dev-1.0.4 -y
+	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip -y
+	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	fi
 elif [ "$OS" = "Debian" ]; then
 	if [ "$SVER" = "8" ]; then
 		echo ""
-		echo "Adding .NET to PATH..."
 		apt-get update
 		apt-get upgrade -y
 		apt-get install sudo -y
 		sudo apt-get install software-properties-common apt-transport-https -y
 		sudo apt-get install curl libunwind8 gettext -y
-		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848826
-		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main" > /etc/apt/sources.list.d/dotnetdev.list'
+		sudo apt-get update
+		sudo apt-get install dotnet-sdk-2.0.0 -y
 		echo "Installing prerequisites..."
 		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
 		sudo apt-get update && sudo apt install ffmpeg -y
-		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev redis-server -y
+		sudo apt-get install git -y
+		sudo apt-get install tmux python python3.5 -y
+		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+		sudo chmod a+rx /usr/local/bin/youtube-dl
+	elif [ "$SVER" = "9" ]; then
+		echo ""
+		apt-get update
+		apt-get upgrade -y
+		apt-get install sudo -y
+		sudo apt-get install software-properties-common apt-transport-https -y
+		sudo apt-get install curl libunwind8 gettext -y
+		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/dotnetdev.list'
+		sudo apt-get update
+		sudo apt-get install dotnet-sdk-2.0.0 -y
+		echo "Installing prerequisites..."
+		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
+		sudo apt-get update && sudo apt install ffmpeg -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev redis-server -y
 		sudo apt-get install git -y
 		sudo apt-get install tmux python python3.5 -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	else
-		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
+		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizNet's support on Discord with screenshot."
 		rm wizbotautoinstaller.sh
 		exit 1
 	fi
@@ -219,9 +248,11 @@ elif [ "$OS" = "LinuxMint" ]; then
 	if [ "$SVER" = "18" ]; then
 		echo ""
 		echo "Preparing..."
-		sudo apt-get install software-properties-common apt-transport-https -y
-		sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+		sudo apt-get update
+		sudo apt-get install software-properties-common apt-transport-https curl -y
+		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 		sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 		sudo apt update
 		sudo apt upgrade -y
@@ -229,17 +260,19 @@ elif [ "$OS" = "LinuxMint" ]; then
 		echo "Installing Git..."
 		sudo apt install git -y
 		echo "Installing .NET Core..."
-		sudo apt-get install dotnet-dev-1.0.4 -y
+		sudo apt-get install dotnet-sdk-2.0.0 -y
 		echo "Installing prerequisites..."
-		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip -y
+		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "17" ]; then
 		echo ""
 		echo "Preparing..."
-		sudo apt-get install software-properties-common apt-transport-https -y
-		sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-		sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+		sudo apt-get update
+		sudo apt-get install software-properties-common apt-transport-https curl -y
+		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 		sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 		sudo add-apt-repository ppa:chris-lea/libsodium -y
 		sudo apt update
@@ -248,26 +281,27 @@ elif [ "$OS" = "LinuxMint" ]; then
 		echo "Installing Git..."
 		sudo apt install git -y
 		echo "Installing .NET Core..."
-		sudo apt-get install dotnet-dev-1.0.4 -y
+		sudo apt-get install dotnet-sdk-2.0.0 -y
 		echo "Installing prerequisites..."
-		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip -y
+		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev redis-server -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "2" ]; then
 		echo ""
-		echo "Adding .NET to PATH..."
 		apt-get update
 		apt-get upgrade -y
 		apt-get install sudo -y
 		sudo apt-get install software-properties-common apt-transport-https -y
 		sudo apt-get install curl libunwind8 gettext -y
-		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848826
-		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-jessie-prod jessie main" > /etc/apt/sources.list.d/dotnetdev.list'
+		sudo apt-get update
+		sudo apt-get install dotnet-sdk-2.0.0 -y
 		echo "Installing prerequisites..."
 		echo "deb http://ftp.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list
 		sudo apt-get update && sudo apt install ffmpeg -y
-		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev redis-server -y
 		sudo apt-get install git -y
 		sudo apt-get install tmux python python3.5 -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
@@ -280,18 +314,22 @@ elif [ "$OS" = "CentOS" ]; then
 		yum --obsoletes --exclude=kernel* update -y
 		yum install sudo -y
 		sudo yum install libunwind libicu -y
-		curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848821
-		sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-		sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+		sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+		sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/dotnetdev.repo'
+		
 		yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm epel-release
 		sudo yum install git opus opus-devel ffmpeg tmux yum-utils -y
 		sudo yum -y groupinstall development
 		sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-		sudo yum install python python36u python36u-pip python36u-devel -y
+		sudo yum --obsoletes --exclude=kernel* update -y
+		sudo yum install python python36u python36u-pip python36u-devel dotnet-sdk-2.0.0 -y
+		sudo yum install redis -y
+		sudo systemctl start redis
+		sudo systemctl enable redis
 		wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		chmod a+rx /usr/local/bin/youtube-dl
 	else
-		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizBot's support on Discord with screenshot."
+		echo -e "Your OS $OS $VER $ARCH probably can run Microsoft .NET Core. \nContact WizNet's support on Discord with screenshot."
 		rm wizbotautoinstaller.sh
 		exit 1
 	fi

@@ -1,6 +1,6 @@
 #!/bin/sh
 echo ""
-echo "WizBot 1.5+"
+echo "WizBot 1.9+"
 echo "By Kwoth & Wizkiller96"
 root=$(pwd)
 youtube-dl -U
