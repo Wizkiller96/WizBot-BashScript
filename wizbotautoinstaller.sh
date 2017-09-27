@@ -128,15 +128,15 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 	sudo add-apt-repository ppa:chris-lea/libsodium -y
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt dist-upgrade -y
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -y
 	echo "Installing Git..."
-	sudo apt install git -y
+	sudo apt-get install git -y
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev redis-server -y
+	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.04" ]; then
@@ -148,15 +148,15 @@ read -n 1 -s -p "Press any key to continue..."
 	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 	sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt dist-upgrade -y
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -y
 	echo "Installing Git..."
-	sudo apt install git -y
+	sudo apt-get install git -y
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
+	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "16.10" ]; then
@@ -167,15 +167,15 @@ read -n 1 -s -p "Press any key to continue..."
 	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt dist-upgrade -y
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -y
 	echo "Installing Git..."
-	sudo apt install git -y
+	sudo apt-get install git -y
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
+	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$VER" = "17.04" ]; then
@@ -186,15 +186,15 @@ read -n 1 -s -p "Press any key to continue..."
 	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt dist-upgrade -y
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get dist-upgrade -y
 	echo "Installing Git..."
-	sudo apt install git -y
+	sudo apt-get install git -y
 	echo "Installing .NET Core..."
 	sudo apt-get install dotnet-sdk-2.0.0 -y
 	echo "Installing prerequisites..."
-	sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
+	sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 	sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 	sudo chmod a+rx /usr/local/bin/youtube-dl
 	fi
@@ -254,15 +254,15 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 		sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
-		sudo apt update
-		sudo apt upgrade -y
-		sudo apt dist-upgrade -y
+		sudo apt-get update
+		sudo apt-get upgrade -y
+		sudo apt-get dist-upgrade -y
 		echo "Installing Git..."
-		sudo apt install git -y
+		sudo apt-get install git -y
 		echo "Installing .NET Core..."
 		sudo apt-get install dotnet-sdk-2.0.0 -y
 		echo "Installing prerequisites..."
-		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3-pip redis-server -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "17" ]; then
@@ -275,15 +275,15 @@ elif [ "$OS" = "LinuxMint" ]; then
 		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 		sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
 		sudo add-apt-repository ppa:chris-lea/libsodium -y
-		sudo apt update
-		sudo apt upgrade -y
-		sudo apt dist-upgrade -y
+		sudo apt-get update
+		sudo apt-get upgrade -y
+		sudo apt-get dist-upgrade -y
 		echo "Installing Git..."
-		sudo apt install git -y
+		sudo apt-get install git -y
 		echo "Installing .NET Core..."
 		sudo apt-get install dotnet-sdk-2.0.0 -y
 		echo "Installing prerequisites..."
-		sudo apt install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev redis-server -y
+		sudo apt-get install libopus0 opus-tools libopus-dev libsodium-dev ffmpeg tmux python python3.5-dev redis-server -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
 	elif [ "$SVER" = "2" ]; then
