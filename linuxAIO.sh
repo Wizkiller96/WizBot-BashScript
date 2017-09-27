@@ -65,13 +65,6 @@ clear
 cd "$root/WizBot/src/WizBot"
 mv credentials.json credentials.json.old
 
-echo Please enter your bot client ID:
-read clientid
-echo Alright saved \'$clientid\' as your client ID.
-echo ""
-echo "----------"
-echo ""
-
 echo Please enter your bot ID \(should be same as your client ID\):
 read botid
 echo Alright saved \'$botid\' as your Bot ID.
@@ -122,8 +115,15 @@ echo "----------"
 echo ""
 
 echo Please enter Patreon Access Token or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
-read scid
+read patreon
 echo Alright saved \'$patreon\'
+echo ""
+echo "----------"
+echo ""
+
+echo Please enter Cleverbot Api Key or Just Press [Enter Key] to skip. \(optional\) \(Refer to the JSON Explanations guide.\):
+read cleverbot
+echo Alright saved \'$cleverbot\'
 echo ""
 echo "----------"
 echo ""
@@ -140,6 +140,7 @@ echo "{
   \"MashapeKey\": \"$mashapekey\",
   \"OsuApiKey\": \"$osu\",
   \"PatreonAccessToken\": \"$patreon\",
+  \"CleverbotApiKey\": \"$cleverbot\",
   \"Db\": null,
   \"TotalShards\": 1
 }" | cat - >> credentials.json
