@@ -154,7 +154,7 @@ bash "$root/linuxAIO.sh"
 					else
 						if [ $choice -eq 6 ] ; then
 							echo ""
-						echo "Starting the setuo for pm2 with WizBot. This only has to be done once."
+						echo "Starting the setup for pm2 with WizBot. This only has to be done once."
 						wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotpm2setup.sh && bash "$root/wizbotpm2setup.sh"
 						echo ""
 						echo "Welcome back..."
@@ -166,7 +166,6 @@ bash "$root/linuxAIO.sh"
 							echo "Getting the pm2 startup options for WizBot.."
 							wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotpm2start.sh && bash "$root/wizbotpm2start.sh"
 							echo ""
-							echo "That did not work?"
 							sleep 2s
 							bash "$root/linuxAIO.sh"
 							else
