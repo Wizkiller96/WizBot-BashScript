@@ -3,15 +3,17 @@
 echo "Welcome to WizBot."
 root=$(pwd)
 echo ""
-choice=7
+choice=9
 	echo "1. Download WizBot"
 	echo "2. Run WizBot (Normally)"
 	echo "3. Run WizBot with Auto Restart"
 	echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
 	echo "5. Set up credentials.json (If you have downloaded WizBot already)"
-	echo "6. Exit"
-	echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit"
-while [ $choice -eq 7 ]; do
+	echo "6. Set up pm2 for WizBot (see README!)"
+	echo "7. Start WizBot in pm2 (complete option 6 first)"
+	echo "8. Exit"
+	echo -n "Choose [1] to Download, [2 or 3] to Run, [6 and 7] for pm2 setup/startup (see README!) or [8] to Exit."
+while [ $choice -eq 9 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 
@@ -152,20 +154,41 @@ bash "$root/linuxAIO.sh"
 					else
 						if [ $choice -eq 6 ] ; then
 							echo ""
-							echo "Exiting..."
-							cd "$root"
-							exit 0
+						echo "Starting the setuo for pm2 with WizBot. This only has to be done once."
+						wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotpm2setup.sh && bash "$root/wizbotpm2setup.sh"
+						echo ""
+						echo "Welcome back..."
+						sleep 2s
+						bash "$root/linuxAIO.sh"
 						else
-							clear
-							echo "1. Download WizBot"
-							echo "2. Run WizBot (Normally)"
-							echo "3. Run WizBot with Auto Restart"
-							echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
-							echo "5. Set up credentials.json (If you have downloaded WizBot already)"
-							echo "6. Exit"
-							echo -n "Choose [1] to Download, [2 or 3] to Run, or [6] to Exit."
-							choice=7
-						fi
+							if [ $choice -eq 7 ] ; then
+							echo ""
+							echo "Getting the pm2 startup options for WizBot.."
+							wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotpm2start.sh && bash "$root/wizbotpm2start.sh"
+							echo ""
+							echo "That did not work?"
+							sleep 2s
+							bash "$root/linuxAIO.sh"
+							else
+								if [ $choice -eq 8 ] ; then
+									echo ""
+									echo "Exiting..."
+									cd "$root"
+									exit 0
+								else
+									clear
+									echo "1. Download WizBot"
+									echo "2. Run WizBot (Normally)"
+									echo "3. Run WizBot with Auto Restart"
+									echo "4. Auto-Install Prerequisites (For Ubuntu, Debian and CentOS)"
+									echo "6. Set up pm2 for WizBot (see README!)"
+									echo "7. Start WizBot in pm2 (complete option 6 first)"
+									echo "8. Exit"
+									echo -n "Choose [1] to Download, [2 or 3] to Run, [6 and 7] for pm2 setup/startup (see README!) or [8] to Exit."
+									choice=9
+								fi
+							fi	
+						fi 
 					fi
 				fi
 			fi
