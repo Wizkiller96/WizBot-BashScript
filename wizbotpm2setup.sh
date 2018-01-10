@@ -61,7 +61,7 @@ if [ "$BITS" = 32 ]; then
 fi
 
 
-echo -e "Welcome to WizBot pm2 setup! \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
+echo -e "Welcome to WizBot's pm2 setup! \nWould you like to continue? \nYour OS: $OS \nOS Version: $VER \nArchitecture: $ARCH"
 
 while true; do
     read -p "[y/n]: " yn
@@ -131,7 +131,7 @@ fi
 
 echo
 echo "WizBot pm2 Installation completed..."
-read -n 1 -s -p "Press any key to continue..."
+read -n 1 -s -p "Press any key to continue to the main menu..."
 sleep 2
 
 cd "$root"
