@@ -6,11 +6,11 @@ youtube-dl -U
 
 sleep 5s
 cd "$root/WizBot"
-dotnet restore && dotnet build --configuration Release
+dotnet restore && dotnet build -c Release
 
 while :; do cd "$root/WizBot/src/WizBot" && dotnet run -c Release; sleep 5s; done
 echo ""
-echo "That didn't work? Please report in WizNet Discord Server."
+echo "That didn't work? Please report in WizNet's Discord Server."
 sleep 3s
 
 cd "$root"

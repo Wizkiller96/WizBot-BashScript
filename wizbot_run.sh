@@ -14,10 +14,10 @@ else
 fi
 cd "$root/WizBot"
 dotnet restore
-dotnet build --configuration Release
+dotnet build -c Release
 cd "$root/WizBot/src/WizBot"
 echo "Running WizBot. Please wait."
-dotnet run --configuration Release
+dotnet run -c Release
 echo "Done"
 
 cd "$root"
