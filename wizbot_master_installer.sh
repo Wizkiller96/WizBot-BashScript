@@ -19,14 +19,14 @@ if [ $choice -eq 1 ] ; then
 
 	echo ""
 	echo "Downloading WizBot, please wait."
-	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbot_installer_latest.sh && bash "$root/wizbot_installer_latest.sh"
+	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbot_installer_latest.sh && bash "$root/wizbot_installer_latest.sh"
 	echo ""
 	bash "$root/linuxAIO.sh"
 else
 		if [ $choice -eq 2 ] ; then
 			echo ""
 			echo "Running WizBot Normally, if you are running this to check WizBot, use .die command on discord to stop WizBot."
-			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbot_run.sh && bash "$root/wizbot_run.sh"
+			wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbot_run.sh && bash "$root/wizbot_run.sh"
 			echo ""
 			echo "Welcome back to WizBot."
 			sleep 2s
@@ -36,7 +36,7 @@ else
 				echo ""
 				echo "Running WizBot with Auto Restart you will have to close the session to stop the auto restart."
 				sleep 5s
-				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/WizBotAutoRestartAndUpdate.sh && bash "$root/WizBotAutoRestartAndUpdate.sh"
+				wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/WizBotAutoRestartAndUpdate.sh && bash "$root/WizBotAutoRestartAndUpdate.sh"
 				echo ""
 				echo "That did not work?"
 				sleep 2s
@@ -45,7 +45,7 @@ else
 				if [ $choice -eq 4 ] ; then
 					echo ""
 					echo "Getting the Auto-Installer for Debian/Ubuntu"
-					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotautoinstaller.sh && bash "$root/wizbotautoinstaller.sh"
+					wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbotautoinstaller.sh && bash "$root/wizbotautoinstaller.sh"
 					echo ""
 					echo "Welcome back..."
 					sleep 2s
@@ -172,7 +172,7 @@ bash "$root/linuxAIO.sh"
 						if [ $choice -eq 6 ] ; then
 						echo ""
 						echo "Starting the setup for pm2 with WizBot. This only has to be done once."
-						wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotpm2setup.sh && bash "$root/wizbotpm2setup.sh"
+						wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbotpm2setup.sh && bash "$root/wizbotpm2setup.sh"
 						echo ""
 						echo "Welcome back..."
 						sleep 2s
@@ -181,7 +181,7 @@ bash "$root/linuxAIO.sh"
 							if [ $choice -eq 7 ] ; then
 							echo ""
 							echo "Getting the pm2 startup options for WizBot.."
-							wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbotpm2start.sh && bash "$root/wizbotpm2start.sh"
+							wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbotpm2start.sh && bash "$root/wizbotpm2start.sh"
 							echo ""
 							sleep 2s
 							bash "$root/linuxAIO.sh"

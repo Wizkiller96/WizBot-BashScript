@@ -17,7 +17,7 @@ while [ $choice -eq 5 ]; do
 read choice
 if [ $choice -eq 1 ] ; then
 	echo ""
-	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/WizBotARN.sh 
+	wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/WizBotARN.sh 
 	cd "$root"
 	echo "Starting WizBot in pm2 with auto-restart and no auto-update..."
 	sudo pm2 start "$root/WizBotARN.sh" --interpreter=bash --name=WizBot
@@ -28,7 +28,7 @@ if [ $choice -eq 1 ] ; then
 else
 	if [ $choice -eq 2 ] ; then
 		echo ""
-		wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/WizBotARU_Latest.sh 
+		wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/WizBotARU_Latest.sh 
 		cd "$root"
         echo "Starting WizBot in pm2 with auto-restart and auto-update..."
 		sudo pm2 start "$root/WizBotARU_Latest.sh" --interpreter=bash --name=WizBot
@@ -39,7 +39,7 @@ else
 	else
 		if [ $choice -eq 3 ] ; then
 		echo ""
-		wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbot_run.sh
+		wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbot_run.sh
 		cd "$root"
         echo "Starting WizBot in pm2 normally without any auto update or restart.."
 		sudo pm2 start "$root/wizbot_run.sh" --interpreter=bash --name=WizBot
