@@ -66,7 +66,7 @@ else
 	cp -RT "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.1/data/WizBot.db" 1>/dev/null 2>&1
     cp -RT "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.0/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.1/data/WizBot.db" 1>/dev/null 2>&1
     mv -f "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.0/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.0/data/WizBot_old.db" 1>/dev/null 2>&1
-    mv -f "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot_old.db" 1>/dev/null 2>&1
+	mv -f "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot_old.db" 1>/dev/null 2>&1
     mv -f "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.0/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.0/data/WizBot_old.db" 1>/dev/null 2>&1
     echo ""
     echo "Database copied to the new version"
