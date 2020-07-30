@@ -2,7 +2,7 @@
 echo ""
 echo "Welcome to WizBot. Downloading the latest installer..."
 root=$(pwd)
-wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/1.9/wizbot_master_installer.sh
+wget -N https://github.com/Wizkiller96/WizBot-BashScript/raw/2.1/wizbot_master_installer.sh
 
 bash wizbot_master_installer.sh
 cd "$root"
