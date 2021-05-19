@@ -69,6 +69,8 @@ else
 	mv -f "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp1.1/data/WizBot_old.db" 1>/dev/null 2>&1
     mv -f "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.0/data/WizBot.db" "$root/WizBot/src/WizBot/bin/Release/netcoreapp2.0/data/WizBot_old.db" 1>/dev/null 2>&1
     echo ""
+	mv -f "$root/WizBot_old/src/WizBot/data/aliases.yml" "$root/WizBot_old/src/WizBot/data/aliases_old.yml" 1>/dev/null 2>&1
+	mv -f "$root/WizBot_old/src/WizBot/data/strings" "$root/WizBot_old/src/WizBot/data/strings_old" 1>/dev/null 2>&1
     echo "Database copied to the new version"
     cp -RT "$root/WizBot_old/src/WizBot/data/" "$root/WizBot/src/WizBot/data/" 1>/dev/null 2>&1
     echo ""
