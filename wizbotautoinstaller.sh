@@ -91,6 +91,11 @@ if [ "$OS" = "Ubuntu" ]; then
 		supported=1
 	elif [ "$VER" = "20.10" ]; then
 		supported=1
+	elif [ "$VER" = "21.04" ]; then
+		supported=1
+		VER=20.10
+		echo -e "Using Ubuntu 20.10 Installation scripts.\nIf the installation fails contact WizNet support."
+		sleep 5
 	else
 		supported=0
 	fi
@@ -427,8 +432,9 @@ elif [ "$OS" = "Debian" ]; then
 		sudo apt-get install tmux python python3.5 -y
 		sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 		sudo chmod a+rx /usr/local/bin/youtube-dl
-	elif [ "$SVER" = "10.9" ]; then
+	elif [ "$SVER" = "11" ]; then
 		VER=10
+		# Update when available
 		echo -e "Using Debian 10 Installation scripts.\nIf the installation fails contact WizBot support."
 		sleep 5
 	elif [ "$SVER" = "10" ]; then
